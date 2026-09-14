@@ -16,4 +16,6 @@ The design uses five main roles: users as the actor, movies as the producer, rat
 
 ## Schema
 
-The Entity Relationship Diagram (ERD) will be added here after the schema design is completed.
+The Entity Relationship Diagram below shows the relationships between Users, Ratings, Movies, Movie Genres, and Genres.
+
+![Movie/TV Database ERD](schema/erd.png)
