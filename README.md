@@ -19,3 +19,22 @@ The design uses five main roles: users as the actor, movies as the producer, rat
 The Entity Relationship Diagram below shows the relationships between Users, Ratings, Movies, Movie Genres, and Genres.
 
 ![Movie/TV Database ERD](schema/erd.png)
+
+
+## Unit 2 – SQL Schema Implementation
+
+In Unit 2, the conceptual database design from Unit 1 was implemented as a PostgreSQL schema. The schema creates the five tables used by the Movie/TV database: `users`, `movies`, `ratings`, `genres`, and `movie_genres`.
+
+The implementation includes primary keys, foreign keys, `NOT NULL`, `UNIQUE`, and `CHECK` constraints to maintain data integrity. Foreign key relationships also include `ON DELETE CASCADE` where dependent records should be removed when their related parent record is deleted.
+
+The SQL script includes a reset block using `DROP TABLE IF EXISTS` so that the complete schema can be executed multiple times without requiring manual cleanup. The script was tested in PostgreSQL 18 and successfully executed twice in a row.
+
+### Unit 2 Files
+
+- [`schema/schema.sql`](schema/schema.sql) – Complete PostgreSQL DDL for the database.
+- [`analysis/unit2.md`](analysis/unit2.md) – Explanation of foreign key actions and CHECK constraints.
+- [`screenshots/`](screenshots/) – PostgreSQL execution and verification screenshots.
+
+### Verification
+
+The schema was tested by running `schema.sql` twice consecutively. The second execution successfully dropped and recreated all five tables. The PostgreSQL `\dt` command was then used to confirm that all five tables were created successfully.
