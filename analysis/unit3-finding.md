@@ -1,0 +1,10 @@
+Unit 3 Finding: Movie/TV Database Dashboard Investigation
+
+To: Dashboard and Trust and Data Teams
+Subject: Review of Rating Withdrawal Data and Reviewer Payouts
+
+The dashboard previously reported that approximately half of all ratings ended in a spam-related withdrawal, which led leadership to freeze quarterly reviewer payouts. However, after reviewing the Movie/TV database, I found that the dashboard's reported failure rate should not be treated as reliable. The database contains 200 ratings, and my investigation showed that 166 ratings have no recorded withdrawal reason. Another 26 ratings have a recorded reason other than "Policy violation," while 8 are marked with that reason. These findings show that the original report did not accurately account for all records and that the missing information needs to be considered before drawing conclusions about reviewer activity.
+
+The problem came from how the dashboard handled ratings with missing withdrawal information. The original filtering method excluded records that did not have a withdrawal reason, even though those records still existed in the database. As a result, the report could give a misleading impression of how frequently problems occurred. After correcting the filter to include records with missing information, the count increased from 26 to 192. I also checked the data using three different approaches and confirmed that they returned identical results for users who rated available movies released after 2015. This helped verify that the corrected methods were consistent.
+
+Based on these findings, I recommend that leadership reconsider the freeze on quarterly reviewer payouts. The original dashboard results are not strong enough to justify withholding payments without further investigation. The dashboard team should correct its reporting method, clearly distinguish missing information from confirmed violations, and verify the actual number of spam-related withdrawals before making another payout decision. Reviewer payouts should be reassessed using the corrected information so that reviewers are treated fairly and future decisions are based on accurate data.
