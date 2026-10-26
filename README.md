@@ -62,7 +62,15 @@ Unit 4 investigates the Movie/TV platform's confirmed policy-violation rate and 
 
 ### Key Findings
 
-The Unit 3 investigation identified 200 ratings, including eight confirmed policy violations, suggesting an overall failure rate of 4.00%.
+### Key Findings
+
+The Unit 4 PostgreSQL analysis confirmed 200 total ratings and eight confirmed policy violations, resulting in a verified platform-wide failure rate of 4.00%.
+
+Among the 24 reviewers with at least five ratings, there were 183 ratings and eight confirmed failures, producing a high-volume failure-rate baseline of 4.37%.
+
+The reviewer-level investigation identified producer IDs 8, 23, and 22 as priorities for additional review based on their confirmed failure counts and rates.
+
+For Unit 4, reviewer `user_id` values are used as producer identifiers to analyze reviewer payout risk. This differs from the original database domain description, where movies represent the content being rated.
 
 The Unit 4 reviewer breakdown identified producers 8, 23, and 22 as priorities for additional investigation based on their observed failure counts and rates.
 
