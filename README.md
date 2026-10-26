@@ -38,3 +38,32 @@ The SQL script includes a reset block using `DROP TABLE IF EXISTS` so that the c
 ### Verification
 
 The schema was tested by running `schema.sql` twice consecutively. The second execution successfully dropped and recreated all five tables. The PostgreSQL `\dt` command was then used to confirm that all five tables were created successfully.
+
+## Unit 4: Aggregate Analysis and Leadership Reporting
+
+Unit 4 investigates the Movie/TV platform's confirmed policy-violation rate and examines differences in reviewer performance. The analysis uses PostgreSQL aggregate functions, grouping, conditional aggregation, ROLLUP, and Common Table Expressions (CTEs).
+
+### Unit 4 Query Catalogue
+
+| File | Task | Business Question |
+|---|---|---|
+| `queries/unit4/q4_1.sql` | 4.1.1 | What are the overall rating statistics, and how many distinct reviewers contributed ratings? |
+| `queries/unit4/q4_1.sql` | 4.1.2 | How many ratings did each reviewer submit, and what was their average score? |
+| `queries/unit4/q4_1.sql` | 4.1.3 | Which reviewers meet the minimum activity threshold, and what are their confirmed failure rates? |
+| `queries/unit4/q4_1.sql` | 4.1.4 | How do rating activity and confirmed failure rates vary by reviewer and device country? |
+| `queries/unit4/q4_2.sql` | 4.2A | How many total ratings and confirmed policy violations does each reviewer have? |
+| `queries/unit4/q4_2.sql` | 4.2B | What are the regional subtotals and platform-wide grand total? |
+| `queries/unit4/q4_2.sql` | 4.2C | What is the combined confirmed failure rate among reviewers with at least five ratings? |
+
+### Analysis and Findings
+
+- `analysis/unit4.md` — Explains the aggregate analysis, reviewer comparisons, regional breakdown, and conditional aggregation reflection.
+- `analysis/unit4-finding.md` — Presents findings for leadership and identifies reviewers recommended for additional investigation.
+
+### Key Findings
+
+The Unit 3 investigation identified 200 ratings, including eight confirmed policy violations, suggesting an overall failure rate of 4.00%.
+
+The Unit 4 reviewer breakdown identified producers 8, 23, and 22 as priorities for additional investigation based on their observed failure counts and rates.
+
+The overall failure rate remains subject to verification against the current database.
