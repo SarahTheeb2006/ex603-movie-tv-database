@@ -57,3 +57,37 @@ A report relying only on INNER JOIN could exclude users who have never submitted
 Although no inactive users were identified in this dataset, identifying such users in future analyses could help leadership investigate onboarding difficulties, account inactivity, or engagement barriers.
 
 The available data establishes whether users have ratings but does not independently explain why someone might be inactive.
+
+## Task 5.3: CROSS JOIN and Query Execution
+
+### Part A: CROSS JOIN
+
+For this task, I used a CROSS JOIN to combine five movies with five genres. The query returned 25 rows, which matched the expected result of multiplying the number of rows in each dataset (5 × 5 = 25).
+
+Each movie was paired with every genre, regardless of whether the movie was actually assigned to that genre. This demonstrates how CROSS JOIN creates a Cartesian product without requiring a matching condition.
+
+CROSS JOIN can be useful when generating all possible combinations, but it can also produce unnecessarily large datasets if used without careful planning.
+
+### Part B: Three-Table Join and Execution Plan
+
+I used EXPLAIN to examine how PostgreSQL planned to execute a query joining the ratings, users, and movies tables.
+
+The execution plan included a Hash Join to connect ratings with users, followed by a Nested Loop to connect the intermediate results with movies.
+
+PostgreSQL also used an Index Scan on the movies primary key and a Memoize operation to cache movie lookups.
+
+Finally, the query plan included a Sort operation to order ratings by their submission date and rating ID, followed by a Limit operation to return the 20 most recent records.
+
+This demonstrated that PostgreSQL can combine different join strategies and indexing techniques to execute a multi-table query.
+
+## Unit 5 Reflection
+
+Throughout Unit 5, I developed a stronger understanding of how SQL joins affect both the accuracy and completeness of database reports. Working with INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN helped me recognize that selecting the wrong join type can unintentionally exclude important records.
+
+One finding that stood out was that all 30 users in my dataset had submitted at least one rating. Although the INNER JOIN and LEFT JOIN returned identical results, I learned that this would not necessarily happen in a database containing inactive users. This reinforced the importance of checking for missing records rather than assuming that all users have related activity.
+
+I also gained experience using NOT EXISTS and EXCEPT to identify missing relationships. Both approaches returned zero users without ratings, confirming the results of my earlier queries.
+
+The CROSS JOIN exercise demonstrated how quickly result sets can grow when every record is combined with every other record. Finally, examining PostgreSQL's execution plan introduced me to Hash Joins, Nested Loops, Index Scans, and query optimization.
+
+Overall, this assignment helped me understand how SQL queries can support more reliable reporting and better decision-making. In future projects, I will pay closer attention to join selection, missing data, and query performance.
