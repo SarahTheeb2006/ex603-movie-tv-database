@@ -194,3 +194,50 @@ The project progressed from developing a relational schema to investigating SQL 
 Unit 4 established a verified platform-wide failure rate and identified reviewer-level differences that warrant further examination.
 
 By combining SQL queries, documented analysis, and supporting screenshots, the project provides a transparent and reproducible approach to database investigation and reporting.
+
+## Unit 5 – SQL Joins and Platform Analysis
+
+Unit 5 focuses on using SQL joins to connect platform data, identify missing records, compare query results, and examine PostgreSQL execution plans.
+
+### Task 5.1: Connecting Platform Data
+
+I used INNER JOIN to connect the users, ratings, and movies tables. The query displayed each rating alongside its associated user, movie, score, and submission date.
+
+I also used the movie_genres junction table to identify the genres associated with each movie. A self join was used to compare users from the same country and examine differences in their rating activity.
+
+### Task 5.2: Identifying Missing Records
+
+I compared INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN to understand how different joins affect reporting completeness.
+
+**Results:**
+- Total users: 30
+- Users with ratings: 30
+- Users excluded by INNER JOIN: 0
+- Users without ratings: 0
+
+Both NOT EXISTS and EXCEPT confirmed that every user in the dataset had submitted at least one rating.
+
+### Task 5.3: CROSS JOIN and Query Execution
+
+I used CROSS JOIN to combine five movies with five genres, producing 25 combinations.
+
+I also used PostgreSQL EXPLAIN to investigate the execution plan for a three-table join.
+
+The execution plan included a Hash Join, Nested Loop, Index Scan, Memoize operation, Sort, and Limit.
+
+### Task 5.4: Platform Activity and Data Integrity
+
+The findings demonstrated that choosing the appropriate SQL join is important for accurate reporting. Although all users in the current dataset had submitted ratings, an INNER JOIN could exclude inactive users in a different dataset.
+
+The analysis recommends using appropriate joins, checking for missing relationships, and validating query results before making decisions.
+
+### Unit 5 Files
+
+- [Unit 5 SQL Queries](queries/unit5.sql)
+- [Unit 5 Analysis](analysis/unit5.md)
+- [Unit 5 Recommendation Memo](analysis/unit5-finding.md)
+- [Supporting Screenshots](screenshots/)
+
+### Unit 5 Reflection
+
+This unit strengthened my understanding of SQL joins, missing-record detection, and query execution strategies. I learned how join selection affects reporting completeness and how PostgreSQL uses different operations to retrieve and combine data efficiently.
