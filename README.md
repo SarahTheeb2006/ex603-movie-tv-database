@@ -241,3 +241,64 @@ The analysis recommends using appropriate joins, checking for missing relationsh
 ### Unit 5 Reflection
 
 This unit strengthened my understanding of SQL joins, missing-record detection, and query execution strategies. I learned how join selection affects reporting completeness and how PostgreSQL uses different operations to retrieve and combine data efficiently.
+
+## Unit 6 – Window Functions and Analytical SQL
+
+Unit 6 focuses on using PostgreSQL window functions to analyze producer activity, rating patterns, policy violations, and monthly performance trends.
+
+The analysis uses `AVG() OVER()`, `ROW_NUMBER()`, `RANK()`, `DENSE_RANK()`, `NTILE()`, `LAG()`, `LEAD()`, `SUM() OVER()`, `FIRST_VALUE()`, and `LAST_VALUE()`.
+
+### Task 6.1: Window Functions and Rankings
+
+I compared window averages with traditional `GROUP BY` aggregation to understand how window functions preserve individual records while calculating group-level statistics.
+
+I also used ranking functions to compare producer activity and `NTILE(4)` to divide producers into four approximately equal activity groups.
+
+### Task 6.2: Rating Trends and Activity Gaps
+
+I used `LAG()` and `LEAD()` to compare consecutive rating scores, calculated running totals and moving averages, and identified extended gaps between producer rating events.
+
+Producer 12 had the longest observed gap, approximately 218 days, followed by Producer 2 at 194 days and Producer 30 at 179 days.
+
+### Task 6.3: Top-N Events and Monthly Trends
+
+I used `RANK()` to identify the top-scoring rating events for each producer while preserving ties.
+
+I also used `FIRST_VALUE()` and `LAST_VALUE()` with explicit window frames to compare each producer's highest and lowest rating scores.
+
+Monthly analysis identified a 47.62% decrease in rating activity from February to March and a 54.55% increase from April to May.
+
+A calendar validation query confirmed that all 12 months of 2023 contained rating activity.
+
+### Task 6.4: Final Findings
+
+The database contained 200 rating events and eight confirmed policy violations, producing an overall failure rate of 4.00%.
+
+February recorded three policy violations among 21 ratings, representing a monthly failure rate of 14.29%.
+
+The findings support monitoring monthly violation rates, investigating unusual activity patterns, and standardizing ranking rules.
+
+### Unit 6 Files
+
+- [Task 6.1 SQL Queries](queries/unit6/q6_1.sql)
+- [Task 6.2 SQL Queries](queries/unit6/q6_2.sql)
+- [Task 6.3 SQL Queries](queries/unit6/q6_3.sql)
+- [Unit 6 Analysis and Reflection](analysis/unit6.md)
+- [Unit 6 Final Findings Memo](analysis/unit6-finding.md)
+- [Unit 6 Supporting Screenshots](screenshots/)
+
+### Unit 6 Reflection
+
+This unit strengthened my understanding of analytical SQL and demonstrated how window functions support comparisons without removing individual records.
+
+I learned the importance of selecting appropriate ranking functions, defining window frames correctly, identifying missing time periods, and interpreting results carefully.
+
+### Unit 6 Video Presentation
+
+**Presentation link:** To be added after recording.
+
+## Final Project Summary
+
+The EX603 Movie/TV Database project demonstrates the progression from relational database design and schema implementation to SQL investigation, aggregation, joins, and advanced analytical queries.
+
+The completed project includes SQL scripts, written analyses, findings memos, and supporting screenshots to document the investigation and its results.
