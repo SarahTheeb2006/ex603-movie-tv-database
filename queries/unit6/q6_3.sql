@@ -142,3 +142,24 @@ ORDER BY mr.event_month;
 -- ============================================================
 -- END OF TASK 6.3
 -- ============================================================
+-- values represent the entire producer's score range.
+
+SELECT
+    user_id AS producer_id,
+    rating_id,
+    score,
+    FIRST_VALUE(score) OVER (
+        PARTITION BY user_id
+        ORDER BY score DESC, rated_at, rating_id
+        ROWS BETWEEN UNBOUNDED PRECEDING
+                 AND UNBOUNDED FOLLOWING
+    ) AS highest_score,
+    LAST_VALUE(score) OVER (
+        PARTITION BY user_id
+        ORDER BY score DESC, rated_at, rating_id
+        ROWS BETWEEN UNBOUNDED PRECEDING
+                 AND UNBOUNDED FOLLOWING
+    ) AS lowest_score
+FROM ratings
+WHERE user_id IN (1, 2, 3)
+ORDER BY producer_id, score DESC, rating_id;
