@@ -140,9 +140,12 @@ ORDER BY mr.event_month;
 
 
 -- ============================================================
--- END OF TASK 6.3
+-- PART C: FIRST_VALUE AND LAST_VALUE COMPARISON
 -- ============================================================
+
+-- Explicit full-partition frames ensure that both
 -- values represent the entire producer's score range.
+-- Compare highest and lowest scores for producers 1, 2, 3.
 
 SELECT
     user_id AS producer_id,
@@ -163,3 +166,8 @@ SELECT
 FROM ratings
 WHERE user_id IN (1, 2, 3)
 ORDER BY producer_id, score DESC, rating_id;
+
+
+-- ============================================================
+-- END OF TASK 6.3
+-- ============================================================
