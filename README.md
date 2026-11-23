@@ -296,6 +296,7 @@ I learned the importance of selecting appropriate ranking functions, defining wi
 ### Unit 6 Video Presentation
 
 **Presentation link:** To be added after recording.
+https://drive.google.com/file/d/13h4JB6_0hJ6bC4EVAPdxbcEp0vVQXjq9/view?usp=sharing
 
 ## Final Project Summary
 
